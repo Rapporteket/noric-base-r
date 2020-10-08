@@ -1,0 +1,19 @@
+language: generic
+
+services:
+  - docker
+
+before_install:
+  - docker build -t rapporteket/noric-base-r .
+  - docker run -d -ti --name noric-base-r rapporteket/noric-base-r
+
+script:
+  - docker ps | grep -q noric-base-r
+
+deploy:
+  - provider: script
+    script: bash docker_push.sh
+    skip_cleanup: true
+    on:
+      # 'tags: true' maybe added
+      branch: master
