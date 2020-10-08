@@ -21,6 +21,6 @@ RUN R -e "install.packages(c('remotes'), repos='https://cloud.r-project.org/')"
 # install package dependencies
 RUN R -e "install.packages(c('car', 'dplyr', 'ggplot2', 'Hmisc','kableExtra', 'knitr', 'lubridate', 'magrittr', 'RColorBrewer', 'readr', 'revealjs', 'rpivotTable', 'shiny', 'shinyalert', 'shinycssloaders', 'tidyselect', 'xtable'))"
 
-RUN R -e "remotes::install_github(c('Rapporteket/rapbase@*release', 'Rapporteket/raplog@*release)"
+RUN R -e "remotes::install_github(c('Rapporteket/rapbase@*release', 'Rapporteket/raplog@*release')"
 
 CMD ["R"]
